@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository_owner }}/crosby-wedding-backend
+  IMAGE_NAME: maximilian118/crosby-wedding-backend
 
 jobs:
   build-and-push:
