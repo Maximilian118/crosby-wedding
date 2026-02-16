@@ -17,7 +17,7 @@ export const createRsvp = async (
     }
 
     const guest = await Guest.create({
-      fullName: fullName.trim(),
+      fullName: fullName.trim().replace(/\b\w/g, (c) => c.toUpperCase()),
       vegetarian,
       car,
       noAlcohol,
