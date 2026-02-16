@@ -1,0 +1,136 @@
+@use '../../scss/variables';
+@use '../../scss/mixins';
+
+.venue-page {
+  @include mixins.flexbox-column;
+  padding: 40px 0;
+  width: 100%;
+
+  /* Clickable logo linking to Rudge Farm Cottages website */
+  .venue-page__logo-link {
+    @include mixins.flexbox;
+    margin-bottom: 12px;
+  }
+
+  .venue-page__logo {
+    max-width: 280px;
+    border-radius: 8px;
+  }
+
+  /* Website URL below logo */
+  .venue-page__url {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: variables.$black;
+    text-decoration: none;
+    margin-bottom: 16px;
+    transition: color variables.$trans-speed;
+
+    &:hover {
+      color: variables.$black-hover;
+      text-decoration: underline;
+    }
+  }
+
+  /* Venue postal address */
+  .venue-page__address {
+    font-family: "Cormorant Garamond", serif;
+    font-style: normal;
+    font-size: 17px;
+    text-align: center;
+    line-height: 1.6;
+    color: variables.$black;
+    margin-bottom: 40px;
+  }
+
+  /* Parking information section */
+  .venue-page__parking {
+    @include mixins.flexbox-column;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+
+  /* Section heading — decorative script font */
+  .venue-page__heading {
+    font-family: "Parisienne", cursive;
+    font-size: 36px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 20px;
+    color: variables.$black;
+  }
+
+  /* Parking description text */
+  .venue-page__text {
+    font-size: 17px;
+    text-align: center;
+    line-height: 1.6;
+    color: variables.$black;
+    margin-bottom: 20px;
+  }
+
+  /* Colour-coded parking zone legend */
+  .venue-page__zone-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    width: 100%;
+  }
+
+  .venue-page__zone-item {
+    @include mixins.flexbox;
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: 16px;
+    padding: 4px 0;
+    color: variables.$black;
+  }
+
+  /* Coloured dot indicators for parking zones */
+  .venue-page__zone-dot {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+
+    &--blue { background: #4a90d9; }
+    &--red { background: #d94a4a; }
+    &--green { background: #4ad97a; }
+    &--yellow { background: #d9c84a; }
+  }
+
+  /* Parking zone map image */
+  .venue-page__parking-map {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  /* Masonry photo collage using CSS columns */
+  .venue-page__collage {
+    columns: 3;
+    column-gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+
+    @media (max-width: variables.$mobile-breakpoint) {
+      columns: 2;
+    }
+
+    @media (max-width: 480px) {
+      columns: 1;
+    }
+  }
+
+  /* Individual collage image */
+  .venue-page__collage-img {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    break-inside: avoid;
+    display: block;
+  }
+}
