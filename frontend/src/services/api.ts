@@ -9,8 +9,13 @@ const fetchJson = async <T>(url: string, options?: RequestInit): Promise<T> => {
   const fullUrl = `${API_BASE}${url}`;
   console.log(`[API] ${method} ${fullUrl}`);
 
+  /* Only set Content-Type on requests with a body — avoids CORS preflight on GET */
+  const headers: HeadersInit = options?.body
+    ? { "Content-Type": "application/json" }
+    : {};
+
   const response = await fetch(fullUrl, {
-    headers: { "Content-Type": "application/json" },
+    headers,
     ...options,
   });
 

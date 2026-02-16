@@ -14,14 +14,14 @@ const CORS_ORIGIN = process.env.CORS_ORIGIN || "http://localhost:5173";
 const maskUri = (uri: string): string =>
   uri.replace(/:([^@/]+)@/, ":****@");
 
+/* Enable CORS for the frontend origin — must be first to handle preflight OPTIONS */
+app.use(cors({ origin: CORS_ORIGIN }));
+
 /* Log all incoming HTTP requests */
 app.use(requestLogger);
 
 /* Parse JSON request bodies */
 app.use(express.json());
-
-/* Enable CORS for the frontend origin */
-app.use(cors({ origin: CORS_ORIGIN }));
 
 /* Mount RSVP routes */
 app.use("/api/rsvp", rsvpRoutes);
