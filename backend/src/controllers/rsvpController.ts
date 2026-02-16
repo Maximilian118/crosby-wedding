@@ -11,7 +11,8 @@ export const createRsvp = async (
     const { fullName, vegetarian, car, noAlcohol, comments } = req.body;
 
     if (!fullName || !fullName.trim()) {
-      res.status(400).json({ error: "Full name is required" });
+      console.warn("[400] POST /api/rsvp — missing fullName");
+      res.status(400).json({ error: "Full name is required", status: 400 });
       return;
     }
 
@@ -23,10 +24,11 @@ export const createRsvp = async (
       comments,
     });
 
+    console.log(`[201] POST /api/rsvp — created RSVP for "${guest.fullName}"`);
     res.status(201).json(guest);
   } catch (error) {
-    console.error("Failed to create RSVP:", error);
-    res.status(500).json({ error: "Failed to create RSVP" });
+    console.error("[500] POST /api/rsvp —", (error as Error).message);
+    res.status(500).json({ error: "Failed to create RSVP", status: 500 });
   }
 };
 
@@ -41,8 +43,8 @@ export const getRsvps = async (
     });
     res.json(guests);
   } catch (error) {
-    console.error("Failed to fetch RSVPs:", error);
-    res.status(500).json({ error: "Failed to fetch RSVPs" });
+    console.error("[500] GET /api/rsvp —", (error as Error).message);
+    res.status(500).json({ error: "Failed to fetch RSVPs", status: 500 });
   }
 };
 
@@ -55,8 +57,8 @@ export const getRsvpsAdmin = async (
     const guests = await Guest.find({}).sort({ createdAt: -1 });
     res.json(guests);
   } catch (error) {
-    console.error("Failed to fetch RSVPs:", error);
-    res.status(500).json({ error: "Failed to fetch RSVPs" });
+    console.error("[500] GET /api/rsvp/admin —", (error as Error).message);
+    res.status(500).json({ error: "Failed to fetch RSVPs", status: 500 });
   }
 };
 
@@ -69,13 +71,14 @@ export const getRsvpById = async (
     const guest = await Guest.findById(req.params.id);
 
     if (!guest) {
-      res.status(404).json({ error: "RSVP not found" });
+      console.warn(`[404] GET /api/rsvp/${req.params.id} — not found`);
+      res.status(404).json({ error: "RSVP not found", status: 404 });
       return;
     }
 
     res.json(guest);
   } catch (error) {
-    console.error("Failed to fetch RSVP:", error);
-    res.status(500).json({ error: "Failed to fetch RSVP" });
+    console.error(`[500] GET /api/rsvp/${req.params.id} —`, (error as Error).message);
+    res.status(500).json({ error: "Failed to fetch RSVP", status: 500 });
   }
 };

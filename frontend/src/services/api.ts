@@ -5,7 +5,11 @@ const API_BASE = import.meta.env.VITE_API_BASE_URL || "";
 
 /* Generic helper to make fetch requests and parse JSON responses */
 const fetchJson = async <T>(url: string, options?: RequestInit): Promise<T> => {
-  const response = await fetch(`${API_BASE}${url}`, {
+  const method = options?.method || "GET";
+  const fullUrl = `${API_BASE}${url}`;
+  console.log(`[API] ${method} ${fullUrl}`);
+
+  const response = await fetch(fullUrl, {
     headers: { "Content-Type": "application/json" },
     ...options,
   });
@@ -14,9 +18,11 @@ const fetchJson = async <T>(url: string, options?: RequestInit): Promise<T> => {
     const error = await response
       .json()
       .catch(() => ({ error: "Request failed" }));
+    console.error(`[API] ${method} ${fullUrl} — ${response.status} ${error.error}`);
     throw new Error(error.error || "Request failed");
   }
 
+  console.log(`[API] ${method} ${fullUrl} — ${response.status} OK`);
   return response.json();
 };
 
