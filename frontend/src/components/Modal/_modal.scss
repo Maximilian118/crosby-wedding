@@ -1,0 +1,42 @@
+@use '../../scss/variables';
+@use '../../scss/mixins';
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+  @include mixins.flexbox;
+
+  .modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 4px;
+    max-width: 480px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: variables.$black;
+      font-family: "Cormorant Garamond", serif;
+      transition: color variables.$trans-speed;
+
+      &:hover {
+        color: variables.$black-hover;
+      }
+    }
+  }
+}

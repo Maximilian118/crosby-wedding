@@ -1,0 +1,31 @@
+@use '../../scss/variables';
+@use '../../scss/mixins';
+
+nav {
+  width: 100%;
+  position: relative;
+
+  /* Desktop nav: horizontal row of all items */
+  .nav__desktop {
+    height: 120px;
+    @include mixins.flexbox-space-evenly;
+  }
+
+  /* Mobile nav: hidden on desktop */
+  .nav__mobile {
+    display: none;
+  }
+
+  @media (max-width: variables.$mobile-breakpoint) {
+    /* Hide desktop nav on mobile */
+    .nav__desktop {
+      display: none;
+    }
+
+    /* Show mobile nav — just the logo */
+    .nav__mobile {
+      @include mixins.flexbox;
+      padding: 16px 0;
+    }
+  }
+}

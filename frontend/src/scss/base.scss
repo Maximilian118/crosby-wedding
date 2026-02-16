@@ -1,29 +1,26 @@
 @use "./variables";
 @use "mixins";
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Parisienne&display=swap');
 
 h1, h2, h3, h4, h5, h6, p, img {
   margin: 0;
   user-select: none;
-  color: white;
+  color: variables.$black;
 }
 
 a {
   cursor: pointer;
   text-decoration: none;
-  color: white;
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  color: variables.$black;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Cormorant Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: white url('https://crosby-wedding.s3.eu-west-2.amazonaws.com/paper-texture-v3.png');
@@ -31,11 +28,16 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-
+  @include mixins.flexbox-column;
 
   #root {
     min-height: 100%;
+    width: 80%;
     @include mixins.flexbox-column;
+
+    @media (max-width: variables.$mobile-breakpoint) {
+      width: 95%;
+    }
 
     // Consistent layout for all pages: margin-top for nav spacing, padding for content spacing
     main {
@@ -43,6 +45,8 @@ body {
       flex-shrink: 0;
       width: 100%;
       box-sizing: border-box;
+      flex-grow: 1;
+      min-height: calc(100vh - 80px); // Ensure full height minus nav
     }
   }
 }

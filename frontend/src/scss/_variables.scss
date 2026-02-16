@@ -1,12 +1,9 @@
 // colours
-$white-hover: #C1C1C1;
-$off-black: #0f0f0f;
-$mui-success: #66bb6a;
-$mui-error: #F44336;
-$mui-disabled: #757575;
-$mui-hover: #90caf9;
-$mui-off-white: rgba(255, 255, 255, 0.7);
-$mui-border: rgba(255, 255, 255, 0.23);
+$black: rgba(0, 0, 0, 0.71);
+$black-hover: rgba(0, 0, 0, 0.82);
+
+// breakpoints
+$mobile-breakpoint: 768px;
 
 // transitions
 $trans-speed: 0.2s ease;

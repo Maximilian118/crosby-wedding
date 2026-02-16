@@ -1,0 +1,140 @@
+@use '../../scss/variables';
+
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  /* Polite notice explaining form usage */
+  .rsvp-form__notice {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.55);
+    border-left: 2px solid rgba(0, 0, 0, 0.15);
+    padding-left: 14px;
+    margin: 0;
+    user-select: text;
+  }
+
+  /* Input and textarea field wrapper */
+  .rsvp-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    label {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: variables.$black;
+    }
+
+    input[type="text"],
+    textarea {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 16px;
+      font-weight: 400;
+      padding: 10px 12px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 2px;
+      background: transparent;
+      color: variables.$black;
+      transition: border-color variables.$trans-speed;
+      outline: none;
+
+      &:focus {
+        border-color: variables.$black-hover;
+      }
+
+      &:disabled {
+        background: rgba(0, 0, 0, 0.03);
+        cursor: default;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+  }
+
+  /* Checkbox group */
+  .rsvp-form__checkboxes {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+
+    .rsvp-form__checkbox {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      color: variables.$black;
+
+      input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        accent-color: variables.$black;
+
+        &:disabled {
+          cursor: default;
+        }
+      }
+    }
+  }
+
+  /* Error message */
+  .rsvp-form__error {
+    color: #c0392b;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  /* Thank-you message shown after successful submission */
+  &__success {
+    text-align: center;
+    padding: 40px 0;
+
+    .rsvp-form__success-title {
+      font-family: "Parisienne", cursive;
+      font-size: 36px;
+      font-weight: 400;
+      color: variables.$black;
+      margin-bottom: 8px;
+    }
+
+    .rsvp-form__success-desc {
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.55);
+    }
+  }
+
+  /* Submit button */
+  .rsvp-form__submit {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    background: variables.$black;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background variables.$trans-speed;
+    align-self: flex-end;
+
+    &:hover:not(:disabled) {
+      background: variables.$black-hover;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+  }
+}

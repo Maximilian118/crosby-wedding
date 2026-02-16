@@ -1,0 +1,83 @@
+@use '../../scss/variables';
+
+.rsvp-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+
+  /* Individual guest list item */
+  .rsvp-list__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    /* Admin items are clickable */
+    &.rsvp-list__item--admin {
+      cursor: pointer;
+      padding: 14px 12px;
+      border-radius: 2px;
+      transition: background variables.$trans-speed;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.04);
+      }
+    }
+  }
+
+  /* Guest name */
+  .rsvp-list__name {
+    font-size: 18px;
+    font-weight: 500;
+    color: variables.$black;
+  }
+
+  /* Preference tags container */
+  .rsvp-list__prefs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+
+    /* Individual preference pill */
+    .pref-tag {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 12px;
+      color: variables.$black;
+
+      /* Colour-coded variants */
+      &--vegetarian {
+        color: #2d7a3a;
+        border-color: rgba(45, 122, 58, 0.35);
+      }
+
+      &--car {
+        color: #2a5f8f;
+        border-color: rgba(42, 95, 143, 0.35);
+      }
+
+      &--no-alcohol {
+        color: #9a6b28;
+        border-color: rgba(154, 107, 40, 0.35);
+      }
+    }
+  }
+}
+
+/* Empty state message */
+.rsvp-list__empty {
+  text-align: center;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.45);
+  padding: 40px 0;
+}

@@ -1,0 +1,36 @@
+@use '../../../scss/variables';
+
+.nav-item {
+  width: 100px;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+
+  .nav-item-img-container {
+    width: 100px;
+    height: 100px;
+    position: relative;
+
+    img {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  .nav-item-underline {
+    width: 80px;
+    position: absolute;
+    top: 35px;
+    left: 10px;
+  }
+
+  &:hover {
+    h2 {
+      color: variables.$black-hover;
+      transition: variables.$trans-speed;
+    }
+  }
+}

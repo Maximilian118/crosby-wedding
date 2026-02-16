@@ -1,0 +1,41 @@
+@use '../../scss/variables';
+
+.rsvp-admin-page {
+  padding: 40px 0;
+  width: 100%;
+
+  /* Page heading */
+  .rsvp-admin-page__title {
+    font-family: "Parisienne", cursive;
+    font-size: 48px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 8px;
+    color: variables.$black;
+  }
+
+  /* Guest count */
+  .rsvp-admin-page__count {
+    text-align: center;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.45);
+    margin-bottom: 4px;
+  }
+
+  /* Preference breakdown counts */
+  .rsvp-admin-page__stats {
+    text-align: center;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.4);
+    margin-bottom: 32px;
+    letter-spacing: 0.3px;
+  }
+
+  /* Modal heading for guest detail view */
+  .rsvp-admin-page__modal-title {
+    font-family: "Parisienne", cursive;
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,48 @@
+// prettier-ignore
+export const navItems = [
+  {
+    text: "Venue",
+    url: "/venue",
+    img: "",
+    img2: "",
+    imgColoured: "",
+    underline: "https://crosby-wedding.s3.eu-west-2.amazonaws.com/underlines/flower-underline.png",
+    underlineColoured: "",
+  },
+  {
+    text: "Food",
+    url: "/food",
+    img: "",
+    img2: "",
+    imgColoured: "",
+    underline: "https://crosby-wedding.s3.eu-west-2.amazonaws.com/underlines/flower-underline-4.png",
+    underlineColoured: "",
+  },
+  {
+    text: "",
+    url: "/",
+    img: "https://crosby-wedding.s3.eu-west-2.amazonaws.com/logo-ring-trans.png",
+    img2: "https://crosby-wedding.s3.eu-west-2.amazonaws.com/M-and-K-logo-trans.png",
+    imgColoured: "",
+    underline: "",
+    underlineColoured: "",
+  },
+  {
+    text: "Schedule",
+    url: "/schedule",
+    img: "",
+    img2: "",
+    imgColoured: "",
+    underline: "https://crosby-wedding.s3.eu-west-2.amazonaws.com/underlines/flower-underline-6.png",
+    underlineColoured: "",
+  },
+  {
+    text: "RSVP",
+    url: "/rsvp",
+    img: "",
+    img2: "",
+    imgColoured: "",
+    underline: "https://crosby-wedding.s3.eu-west-2.amazonaws.com/underlines/flower-underline-2.png",
+    underlineColoured: "",
+  },
+]

@@ -1,0 +1,27 @@
+@use '../../scss/variables';
+@use '../../scss/mixins';
+
+.menu-page {
+  @include mixins.flexbox-column;
+
+  .menu-page__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .menu-page__item {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      color: variables.$black;
+      cursor: pointer;
+      transition: color variables.$trans-speed;
+
+      &:hover {
+        color: variables.$black-hover;
+      }
+    }
+  }
+}

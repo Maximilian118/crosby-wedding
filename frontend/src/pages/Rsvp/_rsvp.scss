@@ -1,0 +1,50 @@
+@use '../../scss/variables';
+
+.rsvp-page {
+  padding: 40px 0;
+  position: relative;
+  width: 100%;
+
+  /* Page heading */
+  .rsvp-page__title {
+    font-family: "Parisienne", cursive;
+    font-size: 48px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 32px;
+    color: variables.$black;
+  }
+
+  /* Floating action button positioned at bottom-right */
+  .rsvp-page__fab {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    background: variables.$black;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background variables.$trans-speed;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+
+    &:hover {
+      background: variables.$black-hover;
+    }
+  }
+
+  /* Modal heading */
+  .rsvp-page__modal-title {
+    font-family: "Parisienne", cursive;
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+}
