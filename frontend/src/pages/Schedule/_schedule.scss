@@ -1,0 +1,16 @@
+@use '../../scss/variables';
+@use '../../scss/mixins';
+
+.schedule-page {
+  @include mixins.flexbox-column;
+  width: 100%;
+  padding: 20px 0;
+
+  /* Full-width timeline image, capped at a reasonable max-width */
+  .schedule-page__image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+  }
+}

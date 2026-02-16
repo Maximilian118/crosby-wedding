@@ -53,14 +53,20 @@ const Venue: React.FC = () => (
         There are 20 spaces in the main car park and an overflow field at the
         top of the site for an additional 20 cars (weather dependent).
       </p>
+      {/* Overflow car park restrictions */}
+      <p className="venue-page__text">
+        The overflow car park is for day use only — cars cannot be left
+        overnight. Please bring a car that is suitable to be driven and parked
+        in a field.
+      </p>
       <ul className="venue-page__zone-list">
         <li className="venue-page__zone-item">
           <span className="venue-page__zone-dot venue-page__zone-dot--blue" />
-          Main car park
+          Drop off point
         </li>
         <li className="venue-page__zone-item">
           <span className="venue-page__zone-dot venue-page__zone-dot--red" />
-          Overflow parking field
+          Overflow car park
         </li>
         <li className="venue-page__zone-item">
           <span className="venue-page__zone-dot venue-page__zone-dot--green" />
@@ -68,7 +74,7 @@ const Venue: React.FC = () => (
         </li>
         <li className="venue-page__zone-item">
           <span className="venue-page__zone-dot venue-page__zone-dot--yellow" />
-          The barn
+          Staying guests car park
         </li>
       </ul>
       <img
