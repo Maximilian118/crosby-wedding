@@ -4,14 +4,14 @@ import "./_venue.scss";
 const S3_BASE = "https://crosby-wedding.s3.eu-west-2.amazonaws.com/venue";
 const RUDGE_URL = "https://www.rudgefarmcottages.co.uk/";
 
-/* Venue photo collage images */
+/* Venue photo collage images with aspect ratios to prevent layout shift */
 const collageImages = [
-  { src: `${S3_BASE}/rudge-courtyard.webp`, alt: "Rudge Farm courtyard and cottages" },
-  { src: `${S3_BASE}/rudge-lake-aerial.webp`, alt: "Aerial view of the lake and grounds" },
-  { src: `${S3_BASE}/rudge-ducks.webp`, alt: "Ducks at the duck house" },
-  { src: `${S3_BASE}/rudge-bedroom.webp`, alt: "Cottage bedroom" },
-  { src: `${S3_BASE}/rudge-pond-ducks.webp`, alt: "Ducks by the pond" },
-  { src: `${S3_BASE}/rudge-kitchen.webp`, alt: "Cottage kitchen" },
+  { src: `${S3_BASE}/rudge-courtyard.webp`, alt: "Rudge Farm courtyard and cottages", ratio: "3 / 2" },
+  { src: `${S3_BASE}/rudge-lake-aerial.webp`, alt: "Aerial view of the lake and grounds", ratio: "3 / 2" },
+  { src: `${S3_BASE}/rudge-ducks.webp`, alt: "Ducks at the duck house", ratio: "3 / 2" },
+  { src: `${S3_BASE}/rudge-bedroom.webp`, alt: "Cottage bedroom", ratio: "3 / 2" },
+  { src: `${S3_BASE}/rudge-pond-ducks.webp`, alt: "Ducks by the pond", ratio: "3 / 2" },
+  { src: `${S3_BASE}/rudge-kitchen.webp`, alt: "Cottage kitchen", ratio: "3 / 2" },
 ];
 
 /* Venue page — showcases Rudge Farm Cottages with parking info and photo collage */
@@ -92,6 +92,7 @@ const Venue: React.FC = () => (
           src={img.src}
           alt={img.alt}
           className="venue-page__collage-img"
+          style={{ aspectRatio: img.ratio }}
           loading="lazy"
         />
       ))}

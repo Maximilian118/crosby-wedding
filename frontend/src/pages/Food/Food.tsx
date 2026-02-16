@@ -4,20 +4,20 @@ import "./_food.scss";
 const S3_BASE = "https://crosby-wedding.s3.eu-west-2.amazonaws.com/food";
 const STK_URL = "https://www.smoketinkitchen.com/";
 
-/* Masonry collage images — order curated for visual variety */
+/* Masonry collage images — order curated for visual variety with aspect ratios to prevent layout shift */
 const collageImages = [
-  { src: `${S3_BASE}/stk-papermill-1.webp`, alt: "Smoke Tin Kitchen table spread" },
-  { src: `${S3_BASE}/stk-food-5.webp`, alt: "Smoked ribs on cutting board" },
-  { src: `${S3_BASE}/stk-event-1.webp`, alt: "Smoke Tin Kitchen fire" },
-  { src: `${S3_BASE}/stk-food-3.webp`, alt: "Watermelon and feta salad" },
-  { src: `${S3_BASE}/stk-web-1.webp`, alt: "Wood fire cooking" },
-  { src: `${S3_BASE}/stk-food-1.webp`, alt: "Glazed ribs" },
-  { src: `${S3_BASE}/stk-event-2.webp`, alt: "Charred corn with parmesan" },
-  { src: `${S3_BASE}/stk-food-2.webp`, alt: "Smoke Tin Kitchen trailer" },
-  { src: `${S3_BASE}/stk-food-4.webp`, alt: "Sausage rolls" },
-  { src: `${S3_BASE}/stk-papermill-2.webp`, alt: "Hummus and fig spread" },
-  { src: `${S3_BASE}/stk-food-6.webp`, alt: "Bread and charcuterie" },
-  { src: `${S3_BASE}/stk-food-7.webp`, alt: "Glazed sausages" },
+  { src: `${S3_BASE}/stk-papermill-1.webp`, alt: "Smoke Tin Kitchen table spread", ratio: "1365 / 2048" },
+  { src: `${S3_BASE}/stk-food-5.webp`, alt: "Smoked ribs on cutting board", ratio: "1600 / 2134" },
+  { src: `${S3_BASE}/stk-event-1.webp`, alt: "Smoke Tin Kitchen fire", ratio: "2500 / 1669" },
+  { src: `${S3_BASE}/stk-food-3.webp`, alt: "Watermelon and feta salad", ratio: "1600 / 2134" },
+  { src: `${S3_BASE}/stk-web-1.webp`, alt: "Wood fire cooking", ratio: "2048 / 1365" },
+  { src: `${S3_BASE}/stk-food-1.webp`, alt: "Glazed ribs", ratio: "1600 / 2134" },
+  { src: `${S3_BASE}/stk-event-2.webp`, alt: "Charred corn with parmesan", ratio: "2500 / 1669" },
+  { src: `${S3_BASE}/stk-food-2.webp`, alt: "Smoke Tin Kitchen trailer", ratio: "3 / 4" },
+  { src: `${S3_BASE}/stk-food-4.webp`, alt: "Sausage rolls", ratio: "1600 / 2134" },
+  { src: `${S3_BASE}/stk-papermill-2.webp`, alt: "Hummus and fig spread", ratio: "2048 / 1365" },
+  { src: `${S3_BASE}/stk-food-6.webp`, alt: "Bread and charcuterie", ratio: "1600 / 2134" },
+  { src: `${S3_BASE}/stk-food-7.webp`, alt: "Glazed sausages", ratio: "1600 / 2134" },
 ];
 
 /* Grazing table menu items */
@@ -119,6 +119,7 @@ const Food: React.FC = () => (
           src={img.src}
           alt={img.alt}
           className="food-page__collage-img"
+          style={{ aspectRatio: img.ratio }}
           loading="lazy"
         />
       ))}
