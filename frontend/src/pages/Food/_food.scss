@@ -1,0 +1,115 @@
+@use '../../scss/variables';
+@use '../../scss/mixins';
+
+.food-page {
+  @include mixins.flexbox-column;
+  padding: 40px 0;
+  width: 100%;
+
+  /* Clickable logo linking to Smoke Tin Kitchen website */
+  .food-page__logo-link {
+    @include mixins.flexbox;
+    margin-bottom: 12px;
+  }
+
+  .food-page__logo {
+    max-width: 220px;
+    border-radius: 8px;
+  }
+
+  /* Website URL below logo */
+  .food-page__url {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: variables.$black;
+    text-decoration: none;
+    margin-bottom: 32px;
+    transition: color variables.$trans-speed;
+
+    &:hover {
+      color: variables.$black-hover;
+      text-decoration: underline;
+    }
+  }
+
+  /* Intro text */
+  .food-page__intro {
+    font-size: 18px;
+    text-align: center;
+    max-width: 500px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    color: variables.$black;
+  }
+
+  /* Menu section container */
+  .food-page__menu-section {
+    @include mixins.flexbox-column;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+
+  /* Menu heading — decorative script font */
+  .food-page__menu-heading {
+    font-family: "Parisienne", cursive;
+    font-size: 36px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 20px;
+    color: variables.$black;
+  }
+
+  /* Menu item list */
+  .food-page__menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  /* Individual menu item */
+  .food-page__menu-item {
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.5;
+    padding: 6px 0;
+    color: variables.$black;
+  }
+
+  /* Thin divider between mains and sides */
+  .food-page__menu-divider {
+    width: 60px;
+    height: 1px;
+    background: variables.$black;
+    opacity: 0.3;
+    margin: 16px auto;
+  }
+
+  /* Masonry photo collage using CSS columns */
+  .food-page__collage {
+    columns: 3;
+    column-gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+
+    @media (max-width: variables.$mobile-breakpoint) {
+      columns: 2;
+    }
+
+    @media (max-width: 480px) {
+      columns: 1;
+    }
+  }
+
+  /* Individual collage image */
+  .food-page__collage-img {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    break-inside: avoid;
+    display: block;
+  }
+}
