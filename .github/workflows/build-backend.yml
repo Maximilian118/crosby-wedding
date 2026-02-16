@@ -3,7 +3,10 @@ name: Build & Push Backend
 on:
   push:
     branches: [main]
-    paths: [backend/**]
+    paths:
+      - backend/**
+      - .github/workflows/build-backend.yml
+  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
