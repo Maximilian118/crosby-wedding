@@ -1,0 +1,47 @@
+@use '../../scss/variables';
+@use '../../scss/mixins';
+
+.landing-page {
+  @include mixins.flexbox-column;
+  padding: 40px 0;
+  width: 100%;
+
+  /* Couple's names heading */
+  .landing-page__heading {
+    font-family: "Parisienne", cursive;
+    font-size: 52px;
+    font-weight: 400;
+    text-align: center;
+    color: variables.$black;
+    margin-bottom: 30px;
+
+    @media (max-width: variables.$mobile-breakpoint) {
+      font-size: 38px;
+      margin-bottom: 20px;
+    }
+  }
+
+  /* Masonry collage using CSS columns */
+  .landing-page__collage {
+    columns: 3;
+    column-gap: 8px;
+    width: 100%;
+
+    @media (max-width: variables.$mobile-breakpoint) {
+      columns: 2;
+    }
+
+    @media (max-width: 480px) {
+      columns: 1;
+    }
+  }
+
+  /* Individual collage image */
+  .landing-page__img {
+    width: 100%;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    break-inside: avoid;
+    display: block;
+  }
+}

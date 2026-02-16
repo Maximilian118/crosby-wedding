@@ -1,6 +1,6 @@
 import React from "react"
 import { Route, Routes } from "react-router-dom"
-import Landing from "./pages/Landing"
+import Landing from "./pages/Landing/Landing"
 import Menu from "./pages/Menu/Menu"
 import Rsvp from "./pages/Rsvp/Rsvp"
 import RsvpAdmin from "./pages/RsvpAdmin/RsvpAdmin"
