@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import connectDB from "./config/db.js";
 import rsvpRoutes from "./routes/rsvpRoutes.js";
+import contributionRoutes from "./routes/contributionRoutes.js";
 import requestLogger from "./middleware/requestLogger.js";
 import errorHandler from "./middleware/errorHandler.js";
 
@@ -25,6 +26,9 @@ app.use(express.json());
 
 /* Mount RSVP routes */
 app.use("/api/rsvp", rsvpRoutes);
+
+/* Mount contribution routes */
+app.use("/api/contributions", contributionRoutes);
 
 /* Health check endpoint */
 app.get("/api/health", (_req, res) => {

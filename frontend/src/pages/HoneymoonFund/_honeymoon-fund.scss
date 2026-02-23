@@ -31,22 +31,12 @@
     color: variables.$black;
   }
 
-  /* Section subheadings in cursive script */
-  .honeymoon-fund__subheading {
-    font-family: "Parisienne", cursive;
-    font-size: 32px;
-    font-weight: 400;
-    text-align: center;
-    margin-bottom: 20px;
-    color: variables.$black;
-  }
-
-  /* Bank details container */
+  /* Bank details container (inside modal) */
   .honeymoon-fund__details {
     @include mixins.flexbox-column;
     width: 100%;
     max-width: 480px;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
   }
 
   /* Individual bank detail row */
@@ -125,14 +115,66 @@
     }
   }
 
-  /* QR code section */
+  /* QR code section (inside modal) */
   .honeymoon-fund__qr-section {
     @include mixins.flexbox-column;
-    margin-bottom: 40px;
   }
 
   /* QR code SVG element */
   .honeymoon-fund__qr {
     border-radius: 8px;
+  }
+
+  /* Modal heading — Parisienne cursive matching RSVP modal */
+  .honeymoon-fund__modal-title {
+    font-family: "Parisienne", cursive;
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+
+  /* Modal subheading for QR section */
+  .honeymoon-fund__modal-subtitle {
+    font-family: "Parisienne", cursive;
+    font-size: 26px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 16px;
+    color: variables.$black;
+  }
+
+  /* Shared fixed button base style */
+  .honeymoon-fund__fab,
+  .honeymoon-fund__details-btn {
+    position: fixed;
+    bottom: 32px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    background: variables.$black;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background variables.$trans-speed;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+
+    &:hover {
+      background: variables.$black-hover;
+    }
+  }
+
+  /* "Leave a Message" button — fixed bottom-right */
+  .honeymoon-fund__fab {
+    right: 32px;
+  }
+
+  /* "Details" button — fixed bottom-left */
+  .honeymoon-fund__details-btn {
+    left: 32px;
   }
 }

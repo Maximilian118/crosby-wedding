@@ -1,0 +1,115 @@
+@use '../../scss/variables';
+
+.contribution-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  /* Input and textarea field wrapper */
+  .contribution-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    label {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: variables.$black;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 16px;
+      font-weight: 400;
+      padding: 10px 12px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 2px;
+      background: transparent;
+      color: variables.$black;
+      transition: border-color variables.$trans-speed;
+      outline: none;
+
+      &:focus {
+        border-color: variables.$black-hover;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+  }
+
+  /* Amount input with £ currency prefix */
+  .contribution-form__amount-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .contribution-form__currency {
+      font-size: 18px;
+      font-weight: 500;
+      color: variables.$black;
+    }
+
+    input[type="number"] {
+      flex: 1;
+    }
+  }
+
+  /* Error message */
+  .contribution-form__error {
+    color: #c0392b;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  /* Thank-you message shown after successful submission */
+  &__success {
+    text-align: center;
+    padding: 40px 0;
+
+    .contribution-form__success-title {
+      font-family: "Parisienne", cursive;
+      font-size: 36px;
+      font-weight: 400;
+      color: variables.$black;
+      margin-bottom: 8px;
+    }
+
+    .contribution-form__success-desc {
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.55);
+    }
+  }
+
+  /* Submit button */
+  .contribution-form__submit {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    background: variables.$black;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background variables.$trans-speed;
+    align-self: flex-end;
+
+    &:hover:not(:disabled) {
+      background: variables.$black-hover;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+  }
+}

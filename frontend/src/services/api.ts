@@ -1,4 +1,8 @@
 import type { GuestType, CreateRsvpBody } from "../types/guest";
+import type {
+  ContributionType,
+  CreateContributionBody,
+} from "../types/contribution";
 
 /* Base URL for API calls — empty in dev (uses Vite proxy), full URL in production */
 const API_BASE = import.meta.env.VITE_API_BASE_URL || "";
@@ -52,4 +56,19 @@ export const getRsvpsAdmin = (): Promise<GuestType[]> => {
 /* Fetches a single RSVP by ID */
 export const getRsvpById = (id: string): Promise<GuestType> => {
   return fetchJson(`/api/rsvp/${id}`);
+};
+
+/* Submits a new honeymoon fund contribution */
+export const submitContribution = (
+  data: CreateContributionBody
+): Promise<ContributionType> => {
+  return fetchJson<ContributionType>("/api/contributions", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+};
+
+/* Fetches all honeymoon fund contributions */
+export const getContributions = (): Promise<ContributionType[]> => {
+  return fetchJson("/api/contributions");
 };

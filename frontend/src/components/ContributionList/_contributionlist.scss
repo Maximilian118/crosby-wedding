@@ -1,0 +1,66 @@
+@use '../../scss/variables';
+
+.contribution-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+
+  /* Individual contribution item */
+  .contribution-list__item {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  /* Header row with name and relative date */
+  .contribution-list__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+
+  /* Contributor name */
+  .contribution-list__name {
+    font-size: 18px;
+    font-weight: 500;
+    color: variables.$black;
+    text-transform: capitalize;
+  }
+
+  /* Relative date (e.g. "23h ago") */
+  .contribution-list__date {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
+  }
+
+  /* Optional donation amount */
+  .contribution-list__amount {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.45);
+    margin-bottom: 4px;
+  }
+
+  /* Contribution message */
+  .contribution-list__message {
+    font-size: 16px;
+    line-height: 1.6;
+    color: variables.$black;
+    margin: 0;
+  }
+}
+
+/* Empty state message */
+.contribution-list__empty {
+  text-align: center;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.45);
+  padding: 40px 0;
+}
