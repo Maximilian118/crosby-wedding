@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./_landing.scss";
 
 const S3_BASE = "https://crosby-wedding.s3.eu-west-2.amazonaws.com/landing";
@@ -42,6 +43,11 @@ const Landing: React.FC = () => (
   <main className="landing-page">
     {/* Couple's names */}
     <h1 className="landing-page__heading">Maximilian & Kate</h1>
+
+    {/* Honeymoon fund link */}
+    <Link to="/honeymoon-fund" className="landing-page__fund-link">
+      Honeymoon Fund
+    </Link>
 
     {/* Photo masonry collage */}
     <section className="landing-page__collage">

@@ -7,6 +7,7 @@ import RsvpAdmin from "./pages/RsvpAdmin/RsvpAdmin"
 import Food from "./pages/Food/Food"
 import Venue from "./pages/Venue/Venue"
 import Schedule from "./pages/Schedule/Schedule"
+import HoneymoonFund from "./pages/HoneymoonFund/HoneymoonFund"
 import NotFound from "./pages/NotFound"
 
 /* Application route definitions */
@@ -19,6 +20,7 @@ const Router: React.FC = () => (
     <Route path="/menu" Component={Menu}/>
     <Route path="/rsvp" Component={Rsvp}/>
     <Route path="/rsvp/admin" Component={RsvpAdmin}/>
+    <Route path="/honeymoon-fund" Component={HoneymoonFund}/>
     <Route path="*" Component={NotFound}/>
   </Routes>
 )

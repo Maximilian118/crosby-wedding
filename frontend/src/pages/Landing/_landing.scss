@@ -13,11 +13,30 @@
     font-weight: 400;
     text-align: center;
     color: variables.$black;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 
     @media (max-width: variables.$mobile-breakpoint) {
       font-size: 38px;
-      margin-bottom: 20px;
+    }
+  }
+
+  /* Honeymoon fund link */
+  .landing-page__fund-link {
+    font-family: "Parisienne", cursive;
+    font-size: 28px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+    margin-bottom: 30px;
+    transition: color variables.$trans-speed, letter-spacing variables.$trans-speed;
+
+    &:hover {
+      color: variables.$black-hover;
+    }
+
+    @media (max-width: variables.$mobile-breakpoint) {
+      font-size: 24px;
+      margin-bottom: 22px;
     }
   }
 

@@ -1,0 +1,138 @@
+@use '../../scss/variables';
+@use '../../scss/mixins';
+
+.honeymoon-fund {
+  @include mixins.flexbox-column;
+  padding: 40px 0;
+  width: 100%;
+
+  /* Decorative page heading in cursive script */
+  .honeymoon-fund__heading {
+    font-family: "Parisienne", cursive;
+    font-size: 42px;
+    font-weight: 400;
+    text-align: center;
+    color: variables.$black;
+    margin-bottom: 30px;
+
+    @media (max-width: variables.$mobile-breakpoint) {
+      font-size: 34px;
+      margin-bottom: 20px;
+    }
+  }
+
+  /* Warm introductory paragraph */
+  .honeymoon-fund__intro {
+    font-size: 18px;
+    text-align: center;
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 50px;
+    color: variables.$black;
+  }
+
+  /* Section subheadings in cursive script */
+  .honeymoon-fund__subheading {
+    font-family: "Parisienne", cursive;
+    font-size: 32px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 20px;
+    color: variables.$black;
+  }
+
+  /* Bank details container */
+  .honeymoon-fund__details {
+    @include mixins.flexbox-column;
+    width: 100%;
+    max-width: 480px;
+    margin-bottom: 60px;
+  }
+
+  /* Individual bank detail row */
+  .honeymoon-fund__detail {
+    @include mixins.flexbox-space-between;
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    @media (max-width: variables.$mobile-breakpoint) {
+      @include mixins.flexbox-column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+  }
+
+  /* Detail label (e.g. "Sort code") */
+  .honeymoon-fund__label {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: variables.$black;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  /* Value and copy button grouped together */
+  .honeymoon-fund__value-group {
+    @include mixins.flexbox;
+    gap: 10px;
+
+    @media (max-width: variables.$mobile-breakpoint) {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  /* Bank detail value (e.g. the account number) */
+  .honeymoon-fund__value {
+    font-size: 17px;
+    font-family: "Cormorant Garamond", serif;
+    color: variables.$black;
+    user-select: text;
+    letter-spacing: 0.3px;
+  }
+
+  /* Copy-to-clipboard button */
+  .honeymoon-fund__copy-btn {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    padding: 4px 12px;
+    cursor: pointer;
+    color: variables.$black;
+    transition: all variables.$trans-speed;
+    white-space: nowrap;
+
+    &:hover {
+      border-color: variables.$black-hover;
+      color: variables.$black-hover;
+    }
+
+    /* Confirmed "Copied!" state */
+    &--copied {
+      border-color: rgba(0, 0, 0, 0.4);
+      color: variables.$black-hover;
+    }
+  }
+
+  /* QR code section */
+  .honeymoon-fund__qr-section {
+    @include mixins.flexbox-column;
+    margin-bottom: 40px;
+  }
+
+  /* QR code SVG element */
+  .honeymoon-fund__qr {
+    border-radius: 8px;
+  }
+}
