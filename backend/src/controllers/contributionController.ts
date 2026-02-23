@@ -1,6 +1,7 @@
 import type { Request, Response } from "express";
 import Contribution from "../models/Contribution.js";
 import type { CreateContributionBody } from "../types/contribution.js";
+import { sendNotification } from "../services/email.js";
 
 /* Creates a new honeymoon fund contribution entry */
 export const createContribution = async (
@@ -31,6 +32,15 @@ export const createContribution = async (
     console.log(
       `[201] POST /api/contributions — created contribution from "${contribution.name}"`
     );
+
+    /* Send email notification (fire-and-forget) */
+    sendNotification(
+      `New Contribution: ${contribution.name}`,
+      `<p><strong>${contribution.name}</strong> left a message on the honeymoon fund.</p>
+       ${contribution.amount ? `<p>Amount: £${contribution.amount}</p>` : ""}
+       <p>Message: ${contribution.message}</p>`
+    );
+
     res.status(201).json(contribution);
   } catch (error) {
     console.error(

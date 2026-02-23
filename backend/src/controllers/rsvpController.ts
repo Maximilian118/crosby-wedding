@@ -1,6 +1,7 @@
 import type { Request, Response } from "express";
 import Guest from "../models/Guest.js";
 import type { CreateRsvpBody } from "../types/guest.js";
+import { sendNotification } from "../services/email.js";
 
 /* Creates a new RSVP guest entry */
 export const createRsvp = async (
@@ -25,6 +26,17 @@ export const createRsvp = async (
     });
 
     console.log(`[201] POST /api/rsvp — created RSVP for "${guest.fullName}"`);
+
+    /* Send email notification (fire-and-forget) */
+    sendNotification(
+      `New RSVP: ${guest.fullName}`,
+      `<p><strong>${guest.fullName}</strong> has RSVP'd.</p>
+       <p>Vegetarian: ${guest.vegetarian ? "Yes" : "No"}</p>
+       <p>Car: ${guest.car ? "Yes" : "No"}</p>
+       <p>No Alcohol: ${guest.noAlcohol ? "Yes" : "No"}</p>
+       ${guest.comments ? `<p>Comments: ${guest.comments}</p>` : ""}`
+    );
+
     res.status(201).json(guest);
   } catch (error) {
     console.error("[500] POST /api/rsvp —", (error as Error).message);
