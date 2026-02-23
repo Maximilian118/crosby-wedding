@@ -6,6 +6,7 @@ import rsvpRoutes from "./routes/rsvpRoutes.js";
 import contributionRoutes from "./routes/contributionRoutes.js";
 import requestLogger from "./middleware/requestLogger.js";
 import errorHandler from "./middleware/errorHandler.js";
+import { checkResend } from "./services/email.js";
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -39,19 +40,22 @@ app.get("/api/health", (_req, res) => {
 app.use(errorHandler);
 
 /* Connect to database and start server */
-console.log("──────────────────────────────────────");
-console.log(`Environment: ${process.env.NODE_ENV || "development"}`);
-console.log(`CORS origin: ${CORS_ORIGIN}`);
-console.log(`MongoDB URI: ${maskUri(process.env.MONGODB_URI || "not set")}`);
-console.log("──────────────────────────────────────");
-
-connectDB()
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
-  })
-  .catch((error) => {
+(async () => {
+  console.log("──────────────────────────────────────");
+  console.log(`Environment: ${process.env.NODE_ENV || "development"}`);
+  console.log(`CORS origin: ${CORS_ORIGIN}`);
+  console.log(`MongoDB URI: ${maskUri(process.env.MONGODB_URI || "not set")}`);
+  try {
+    await connectDB();
+    console.log("MongoDB: connected");
+  } catch (error) {
     console.error("[FATAL] Failed to connect to database:", error);
     process.exit(1);
+  }
+  await checkResend();
+  console.log("──────────────────────────────────────");
+
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
   });
+})();
