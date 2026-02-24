@@ -10,7 +10,10 @@
     margin: 0;
 
     .menu-page__item {
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       padding: 20px 0;
       font-size: 22px;
       font-weight: 500;

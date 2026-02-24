@@ -154,7 +154,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     padding: 14px 28px;
-    background: variables.$black;
+    background: #494949;
     color: white;
     border: none;
     border-radius: 2px;
@@ -164,7 +164,7 @@
     z-index: 100;
 
     &:hover {
-      background: variables.$black-hover;
+      background: #2e2e2e;
     }
   }
 

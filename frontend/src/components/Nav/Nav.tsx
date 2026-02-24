@@ -1,4 +1,5 @@
 import React from "react"
+import { useLocation } from "react-router-dom"
 import "./_nav.scss"
 import { navItems } from "./NavUtility"
 import NavItem from "./NavItem/NavItem"
@@ -7,6 +8,11 @@ import NavItem from "./NavItem/NavItem"
 const logoItem = navItems.find((item) => item.img && !item.text)
 
 const Nav: React.FC = () => {
+  const { pathname } = useLocation();
+
+  /* On the menu page, M&K links back to home; everywhere else it opens the menu */
+  const mobileLogoUrl = pathname === "/menu" ? "/" : "/menu";
+
   return (
     <nav>
       {/* Desktop: all nav items in a row (hidden on mobile via CSS) */}
@@ -16,10 +22,10 @@ const Nav: React.FC = () => {
         ))}
       </div>
 
-      {/* Mobile: just the logo, navigates to /menu (hidden on desktop via CSS) */}
+      {/* Mobile: just the logo (hidden on desktop via CSS) */}
       <div className="nav__mobile">
         {logoItem && (
-          <NavItem item={{ ...logoItem, url: "/menu" }} />
+          <NavItem item={{ ...logoItem, url: mobileLogoUrl }} />
         )}
       </div>
     </nav>

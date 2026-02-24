@@ -6,6 +6,10 @@
   padding: 40px 0;
   width: 100%;
 
+  @media (max-width: variables.$mobile-breakpoint) {
+    padding: 20px 0 40px;
+  }
+
   /* Couple's names heading */
   .landing-page__heading {
     font-family: "Parisienne", cursive;
@@ -62,5 +66,35 @@
     border-radius: 4px;
     break-inside: avoid;
     display: block;
+  }
+
+  /* Floating RSVP button — hidden on desktop, visible on mobile */
+  .landing-page__rsvp-fab {
+    display: none;
+
+    @media (max-width: variables.$mobile-breakpoint) {
+      display: block;
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      background: #494949;
+      color: white;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background variables.$trans-speed;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+      z-index: 100;
+
+      &:hover {
+        background: #2e2e2e;
+      }
+    }
   }
 }

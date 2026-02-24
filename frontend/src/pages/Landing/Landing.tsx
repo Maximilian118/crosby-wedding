@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./_landing.scss";
 
 const S3_BASE = "https://crosby-wedding.s3.eu-west-2.amazonaws.com/landing";
@@ -39,30 +39,42 @@ const collageImages = [
 ];
 
 /* Landing page — masonry photo collage with couple's names heading */
-const Landing: React.FC = () => (
-  <main className="landing-page">
-    {/* Couple's names */}
-    <h1 className="landing-page__heading">Maximilian & Kate</h1>
+const Landing: React.FC = () => {
+  const navigate = useNavigate();
 
-    {/* Honeymoon fund link */}
-    <Link to="/honeymoon-fund" className="landing-page__fund-link">
-      Honeymoon Fund
-    </Link>
+  return (
+    <main className="landing-page">
+      {/* Couple's names */}
+      <h1 className="landing-page__heading">Maximilian & Kate</h1>
 
-    {/* Photo masonry collage */}
-    <section className="landing-page__collage">
-      {collageImages.map((img) => (
-        <img
-          key={img.src}
-          src={img.src}
-          alt={img.alt}
-          className="landing-page__img"
-          style={{ aspectRatio: img.ratio }}
-          loading="lazy"
-        />
-      ))}
-    </section>
-  </main>
-);
+      {/* Honeymoon fund link */}
+      <Link to="/honeymoon-fund" className="landing-page__fund-link">
+        Honeymoon Fund 🛫
+      </Link>
+
+      {/* Photo masonry collage */}
+      <section className="landing-page__collage">
+        {collageImages.map((img) => (
+          <img
+            key={img.src}
+            src={img.src}
+            alt={img.alt}
+            className="landing-page__img"
+            style={{ aspectRatio: img.ratio }}
+            loading="lazy"
+          />
+        ))}
+      </section>
+
+      {/* Floating RSVP button — mobile only, navigates to RSVP page with form open */}
+      <button
+        className="landing-page__rsvp-fab"
+        onClick={() => navigate("/rsvp", { state: { openForm: true } })}
+      >
+        RSVP
+      </button>
+    </main>
+  );
+};
 
 export default Landing;

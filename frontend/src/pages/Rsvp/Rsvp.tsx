@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
+import { useLocation } from "react-router-dom";
 import "./_rsvp.scss";
 import { getRsvps } from "../../services/api";
 import type { GuestType } from "../../types/guest";
@@ -8,9 +9,14 @@ import Modal from "../../components/Modal/Modal";
 
 /* Public RSVP page showing the guest list and a floating button to open the RSVP form */
 const Rsvp: React.FC = () => {
+  const location = useLocation();
+
+  /* Open the form modal immediately if navigated here with openForm state (e.g. from landing FAB) */
+  const shouldOpenForm = (location.state as { openForm?: boolean })?.openForm ?? false;
+
   const [guests, setGuests] = useState<GuestType[]>([]);
   const [loading, setLoading] = useState(true);
-  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(shouldOpenForm);
   const [formKey, setFormKey] = useState(0);
 
   /* Fetches the public guest list from the API */

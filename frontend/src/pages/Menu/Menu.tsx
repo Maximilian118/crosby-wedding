@@ -1,10 +1,24 @@
 import React from "react";
 import "./_menu.scss";
-import { navItems } from "../../components/Nav/NavUtility";
 import { useNavigate } from "react-router-dom";
+import {
+  Home,
+  MapPin,
+  UtensilsCrossed,
+  Clock,
+  PartyPopper,
+  Plane,
+} from "lucide-react";
 
-/* Filter to text-based nav items (excludes the logo) */
-const menuLinks = navItems.filter((item) => item.text);
+/* Menu items with associated Lucide icons */
+const menuItems = [
+  { text: "Home", url: "/", icon: Home },
+  { text: "Venue", url: "/venue", icon: MapPin },
+  { text: "Food", url: "/food", icon: UtensilsCrossed },
+  { text: "Schedule", url: "/schedule", icon: Clock },
+  { text: "RSVP", url: "/rsvp", icon: PartyPopper },
+  { text: "Honeymoon Fund", url: "/honeymoon-fund", icon: Plane },
+];
 
 /* Mobile menu page — displays nav links as a centered vertical list */
 const Menu: React.FC = () => {
@@ -13,12 +27,13 @@ const Menu: React.FC = () => {
   return (
     <main className="menu-page">
       <ul className="menu-page__list">
-        {menuLinks.map((item, i) => (
+        {menuItems.map((item) => (
           <li
-            key={i}
+            key={item.url}
             className="menu-page__item"
             onClick={() => navigate(item.url)}
           >
+            <item.icon size={20} strokeWidth={1.5} />
             {item.text}
           </li>
         ))}
